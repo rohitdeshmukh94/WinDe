@@ -1,0 +1,16 @@
+{% extends 'blog/bbase.html' %}
+{% block title %}
+Blog_post
+{% endblock title %}
+{% block body %}
+
+<div class=" container px-5 my-4">
+        <h2 class="blog-post-title">{{post.title}}</h2>
+        <p class="blog-post-meta">{{post.date}} by <a href="/blog/home/">{{post.author}}</a></p>
+
+        <p>{{post.desc}}</p>
+        <hr>
+</div>
+
+
+{% endblock body %}

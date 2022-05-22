@@ -1,0 +1,33 @@
+{% extends 'blog/bbase.html' %}
+{% block title %}
+Blog_Home
+{% endblock title %}
+{% block body %}
+<div class="container my-3">
+  <div class="jumbotron bg-light container">
+  <h1 class="display-4">Article by Winde </h1>
+  <hr>
+</div>
+    <div >
+     <form  method="get" action="/blog/search/" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="  Search"
+               name="query" id="search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Find</button>
+          </form>
+</div>
+{% for post in allpost %}
+<div class="container ">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Article by  {{post.author}}</strong>
+          <h3 class="mb-0">{{post.title}}</h3>
+          <div class="mb-1 text-muted"></div>
+          <p class="card-text mb-auto">{{post.desc| truncatechars:250}}</p>
+          <div>
+            <a href="/blog/{{post.slug}}"  role="button"  class="btn btn-primary">Continue reading</a>
+          </div>
+
+      </div>
+    </div>
+{% endfor %}
+{% endblock body %}

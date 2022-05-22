@@ -1,0 +1,1 @@
+web: gunicorn Winde.wsgi:application --log-file -
